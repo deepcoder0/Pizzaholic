@@ -1,0 +1,26 @@
+@import './variables';
+
+body {
+    font-family: 'Lato', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: $dark;
+}
+
+.logo {
+    width: 34%;
+    height: 30%;
+}
+
+nav li:last-child a {
+    background: $primary;
+    &:hover {
+        background: $primary-hover-logo;
+    }
+}
+
+nav li a {
+    transition: $smooth;
+    &:hover {
+        color: $primary-hover-logo;
+    }
+}
