@@ -2,6 +2,7 @@ import axios from 'axios'
 import Noty from 'noty'
 import { initAdmin } from './admin'
 import moment from 'moment'
+import { initStripe } from './stripe'
 
 let addToCart = document.querySelectorAll('.add-to-cart')
 let cartCounter = document.querySelector('#cartCounter')
@@ -32,7 +33,7 @@ addToCart.forEach((btn) => {
     })
 })
 
-// Remove alert message after X seconds 
+// Remove alert message after X seconds
 const alertMsg = document.querySelector('#success-alert')
 if (alertMsg) {
     setTimeout(() => {
@@ -42,7 +43,7 @@ if (alertMsg) {
 
 
 
-// Change order status 
+// Change order status
 let statuses = document.querySelectorAll('.status_line')
 let hiddenInput = document.querySelector('#hiddenInput')
 let order = hiddenInput ? hiddenInput.value : null
@@ -74,16 +75,18 @@ function updateStatus(order) {
 
 updateStatus(order);
 
-// Socket 
+initStripe()
+
+// Socket
 let socket = io()
-initAdmin(socket)
-// Join 
+
+// Join
 if (order) {
     socket.emit('join', `order_${order._id}`)
 }
 let adminAreaPath = window.location.pathname
-console.log(adminAreaPath)
 if (adminAreaPath.includes('admin')) {
+    initAdmin(socket)
     socket.emit('join', 'adminRoom')
 }
 
