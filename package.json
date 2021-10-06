@@ -12,6 +12,9 @@
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
   "license": "MIT",
+  "engines": {
+    "node": "14.17.3"
+  },
   "dependencies": {
     "axios": "^0.21.4",
     "bcrypt": "^5.0.1",
@@ -23,13 +26,11 @@
     "express-ejs-layouts": "^2.5.1",
     "express-flash": "^0.0.2",
     "express-session": "^1.17.2",
-    "flash": "^1.1.0",
     "moment": "^2.29.1",
     "mongoose": "^6.0.7",
     "noty": "^3.2.0-beta-deprecated",
     "passport": "^0.5.0",
     "passport-local": "^1.0.0",
-    "sessions": "^0.0.2-7",
     "socket.io": "^4.2.0",
     "stripe": "^8.176.0"
   },

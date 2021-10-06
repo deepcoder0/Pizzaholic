@@ -15,6 +15,10 @@ nav li:last-child a {
     }
 }
 
+.mainLogo {
+    height: 100px; width: 200px; overflow: hidden;
+}
+
 nav li a {
     transition: $smooth;
     &:hover {
